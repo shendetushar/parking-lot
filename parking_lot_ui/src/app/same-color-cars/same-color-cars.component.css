@@ -1,0 +1,22 @@
+.form{
+    margin-top: 70px;
+}
+
+.back{
+    height: 700px;
+    position: fixed;
+    width: 100%;
+    background-size: 100%;
+    background-color: #c0b8b8;
+  }
+
+  table, th , td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+
+  #location{
+      margin-left: 430px;
+      margin-top: 55px;
+  }

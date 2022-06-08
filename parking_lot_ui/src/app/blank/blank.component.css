@@ -1,0 +1,15 @@
+.back{
+    height: 700px;
+    position: fixed;
+    width: 100%;
+    background-size: 100%;
+    background-color: #c0b8b8;
+  }
+
+  .text{
+    color: rgb(7, 7, 7);
+    font-size: 50px;
+    text-align: center;
+    margin-top: 80px;
+    opacity: 55%;
+  }

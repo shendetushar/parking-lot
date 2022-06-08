@@ -1,0 +1,27 @@
+<div class="back">
+    <form class="col-md-3 offset-4 form">
+        <p>Enter the color to get registration numbers of all cars of that color</p>
+        <input type="text" #color placeholder="Enter color name" class="form-control">
+        <br>
+        <button type="submit" (click)="search(color.value)" class="btn btn-primary">Search</button>
+    </form>
+    <div *ngIf="errorMessage!=null" class="text-danger">
+        {{errorMessage}}
+    </div>
+
+    <div *ngIf="registartionNumberData!=null" id="location">
+        <table >
+            <tr>
+            <th>Sr no</th>
+            <th>Owner name</th> 
+            <th>Registartion number</th>  
+            </tr>
+            <tr *ngFor="let data of registartionNumberData; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{registartionNumberData[i].ownerName}}</td>
+            <td>{{registartionNumberData[i].registrationNumber}}</td>
+            </tr>       
+          </table>
+    </div> 
+
+</div>

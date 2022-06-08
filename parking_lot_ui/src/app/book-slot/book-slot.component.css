@@ -1,0 +1,13 @@
+button{
+    width:100%;
+}
+h1{
+    text-align: center;
+}
+.back{
+    height: 700px;
+    position: fixed;
+    width: 100%;
+    background-size: 100%;
+    background-color: #c0b8b8;
+  }

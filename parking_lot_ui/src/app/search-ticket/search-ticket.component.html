@@ -1,0 +1,33 @@
+<div class="back">
+    <form class="col-md-3 offset-4 form">
+        <p>Enter the Registration number of you car to get ticket details</p>
+        <input type="text" #registrationNumber placeholder="Enter car registration number" class="form-control">
+        <br>
+        <button type="submit" (click)="search(registrationNumber.value)" class="btn btn-primary">Search</button>
+    </form>
+    <div *ngIf="errorMessage!=null" class="text-danger">
+        {{errorMessage}}
+    </div>
+
+    <div *ngIf="ticketData!=null" id="location">
+        <table >
+            <tr>
+            <th>Owner name</th>
+            <th>Registartion number</th>  
+            <th>Ticket number</th>
+            <th>Color</th>
+            <th>Company</th>
+            <th>Contact number</th>
+            </tr>
+            <tr *ngFor="let data of ticketData; let i = index">
+            <td>{{data.ownerName}}</td>
+            <td>{{data.registrationNumber}}</td>
+            <td>{{data.ticketNumber}}</td>
+            <td>{{data.color}}</td>
+            <td>{{data.company}}</td>
+            <td>{{data.contactNumber}}</td>
+            </tr>       
+          </table>
+    </div> 
+
+</div>
