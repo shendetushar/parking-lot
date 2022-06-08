@@ -1,0 +1,112 @@
+! Tried to implement as much as I can in this time period!
+
+After reading the requirements I preferred to choose the Node-express-mongo stack. 
+
+A. I also have developed UI for:- 
+                               1. booking a new slot for car.
+                               2. Get registration no of all cars with same color.
+                               3. To get the ticket detials by cars registration number.
+
+B. Started with the Schema designing:- 
+                                    1. By understanding all the requirements,
+				       tried to design a schema which would able to store and perform the entities mentioned in requirements.
+                                    2. designed the schema and made a Setupdb function which will save some predefined records in database to start with.
+
+C. Developed entry point for application:- 
+					   1. Developed entry point for app which is in app.js file. Entry port no is 2000.
+					   2. Developed and implemented requestLogger and errorLogger to keep eye on my developement.
+						This are middlewares which logs the requests and error in seperate text files.
+Started:-------
+
+1. Started developing the API for the functionalities as mentioned
+2. designed a single Route at a time and then the functions required for that route including the CRUD operations to be performed on DB.
+3. As the mentioned functionalities were minimum I also developed 2 more functionalities :- 
+											  A. To get all records from database.
+											  B. To delete the ticket using ticketNumber.
+
+4. I was not much into the testing, so I learned to write atleast some test cases as soon as possible and implemented some test in test.js file using Jest.
+Note:----- I was using Postman to send the GET, POST.. Delete request... to check my API and routes.
+
+5. Assignment was nearly ready, So I thought to develope UI for this for atleast few functionalities.
+
+UI Componenets:---
+
+1. Started with the Component to book a new parking slot.
+2. Implemented reactive forms and takes the data and using angular services made API call to the node application. 
+3. similarly created component to get CARS registartion numbers of all cars of same color.
+4. and 3rd one to get ticket details using registartion number of car.
+5. Tried to implement the test cases for the components.
+
+********************************************************************************************************************************************************
+
+Application flow:---
+
+request-->app.js-->routes-->service-->carModel-->connection-->database
+
+
+How to run.(writing this for someone who is new to this tech stack)--->
+
+extract zip-->open folder in vs code-->cd parking_lot-->npm i-->enter cmd (node app.js)--> this will start the node application at port 2000.
+
+npm run test(to check test)
+
+same for UI components
+
+extract zip-->open folder in vs code--> cd parking_lot_ui-->npm i-->cmd (ng s --o)-->this will compile and render the frontend application.
+
+ng test(to check test)
+
+
+********************************************************************************************************************************************************
+
+API addresses-:
+
+1. book a slot=  http://localhost:2000/user/newparking  (post request) body required with parameters={ownerName, registrationNumber, color, company, contactNumber}
+
+2. get registartion numbers of same color cars= http://localhost:2000/user/allcars (post request) body required={color}
+
+3. get ticket details using reg no= http://localhost:2000/user/ticketdetail (post request) body required={registration number}
+
+4. get all bboking data from database= http://localhost:2000/user/alldata (get request)
+
+5. to delete a ticket= http://localhost:2000/user/deleteTicket  (delete request) body required={ticketNumber}
+
+
+**********************************************************************************************************************************************************
+
+Schema for the reference:---
+
+carSchema = Schema({
+    ownerName:{
+        type: String,
+        require:[true, 'Required field'],
+        match: [/^[a-zA-Z]+()*[a-zA-Z]*()*[a-zA-Z]+$/, 'Enter a valid name']
+    },
+    registrationNumber: {
+        type: String,
+        required: [true, 'Required field'],
+        unique: [true, 'Id should be unique one']
+    },
+    ticketNumber: {
+        type: String,
+        required: [true, 'Required field'],
+        unique: [true, 'Id should be unique one']
+    },
+    color:{
+        type: String,
+        required: [true, 'Required field'],
+    },
+    company: {
+        type: String,
+        required: [true, 'Required field'],
+        match: [/^[a-zA-Z]+()*[a-zA-Z]*()*[a-zA-Z]+$/, 'Enter a valid name']
+    },
+    contactNumber: {
+        type: Number,
+        required: [true, 'Required field'],
+        match: [/^[6-9]+[0-9]{9}$/, 'Enter valid contact number']
+    }
+})
+
+
+********************************************************************************************************************************************************
